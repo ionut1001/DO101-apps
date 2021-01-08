@@ -22,9 +22,26 @@ block content
             p
             br
             .panel.panel-primary
-              .panel-heading Weather for: #{weather.name}, #{weather.sys.country}
+              .panel-heading Weather for: #{weather.name}, #{weather.sys.country} - Lon: #{weather.coord.lon}, Lat: #{weather.coord.lat}
               .panel-body
                p Current Temperature = #{weather.main.temp} !{units}, #{weather.weather[0].description}
                p Humidity = #{weather.main.humidity} &#37;
                p Min = #{weather.main.temp_min} !{units}
                p Max = #{weather.main.temp_max} !{units}
+               p Feels like = #{weather.main.feels_like} !{units}
+               p Pressure = #{weather.main.pressure}
+               p Wind speed = #{weather.wind.speed}
+          .col-md-5
+            p
+            br
+            .panel.panel-primary
+              .panel-heading Pollution for: #{weather.name}, #{weather.sys.country} - Lon: #{weather.coord.lon}, Lat: #{weather.coord.lat}
+              .panel-body
+              p CO = #{weather.pollutionData.co}
+              p NO = #{weather.pollutionData.no}
+              p NO2 = #{weather.pollutionData.no2}
+              p O3 = #{weather.pollutionData.o3}
+              p SO2 = #{weather.pollutionData.so2}
+              p PM 2.5 = #{weather.pollutionData.pm2_5}
+              p PM 10 = #{weather.pollutionData.pm10}
+              p NH3 = #{weather.pollutionData.nh3}

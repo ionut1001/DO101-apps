@@ -1,0 +1,27 @@
+extends layout
+block content
+  .container
+      h2 
+        p
+         | OpenShift Weather App 2
+      br
+      br
+      .row
+        .col-md-3
+          form(method="post", action="get_weather")
+            .form-group
+              label.sr-only(for="city") City Name
+              input.form-control( name="city" type="text" placeholder="Enter City Name (for ex: New York)" required='required')
+            button.btn.btn-success(type="submit") Get Weather
+      if error
+        br
+        .alert.alert-danger #{error}
+      if weather
+        .row
+          .col-md-5
+            p
+            br
+            .panel.panel-primary
+              .panel-heading Pollution for: #{weather.name}, #{weather.sys.country} - Long: #{weather.coord.lon}, Lat: #{weather.coord.lat}
+              .panel-body
+              p CO = #{weather.list[0].components.co}
